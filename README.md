@@ -50,6 +50,7 @@ docker logs container_name
 
 ## Option for Lab №3
 
-Group number - 24
-The remainder when divided by 3 is 0
+Group number - 24<br>
+The remainder when divided by 3 is 0<br>
 So, the option is income accounting.
+
