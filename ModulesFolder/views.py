@@ -1,4 +1,4 @@
-from ModulesFolder import app
+from ModulesFolder import app, db
 from flask import jsonify, request
 from datetime import datetime
 
@@ -109,4 +109,16 @@ def get_record(record_id):
     if not record:
         return jsonify({"error": "Record not found"}), 404
     return jsonify(record), 200
+
+
+
+@app.errorhandler(404)
+def not_found(error):
+    return {"message": "Resource not found"}, 404
+
+@app.errorhandler(500)
+def internal_error(error):
+    db.session.rollback()
+    return {"message": "Internal server error"}, 500
+
 
